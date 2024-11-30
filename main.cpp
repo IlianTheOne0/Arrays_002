@@ -57,7 +57,7 @@ int main()
 
 	random_device rd;
 	mt19937 gen(rd());
-	uniform_int_distribution<> dist(1, 100);
+	uniform_int_distribution<> dist(0, 99);
 
 	for (int i = 0; i < size; i++)
 	{
@@ -77,12 +77,12 @@ int main()
 	cout << "The min element of the array: " << min_ << endl;
 	cout << "The max element of the array: " << max_ << endl;
 
-	cout << endl << endl << endl;
+	cout << endl << endl << endl << "Array:" << endl;
 	for (int i = 0; i < size; i++)
 	{
 		for (int j = 0; j < size; j++)
 		{
-			if (arr[i][j] < 10 && arr[i][j] > 0)
+			if (arr[i][j] < 10 && arr[i][j] >= 0)
 			{
 				cout << " ";
 			}
