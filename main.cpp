@@ -8,7 +8,6 @@ using std::cin;
 using std::setfill;
 using std::setw;
 
-
 int main()
 {
 	const int size_x = 4;
