@@ -1,6 +1,7 @@
 #include <iostream>
 #include <conio.h>
 #include <random>
+#include <iomanip>
 
 using std::cout;
 using std::endl;
@@ -8,6 +9,8 @@ using std::cin;
 using std::random_device;
 using std::mt19937;
 using std::uniform_int_distribution;
+using std::setfill;
+using std::setw;
 
 int _min(int arr[][5], int size)
 {
@@ -70,7 +73,9 @@ int main()
 	
 	mean = (double)sum / (size * size);
 	min_ = _min(arr, size);
+
 	max_ = _max(arr, size);
+	min_ = _min(arr, size);
 
 	cout << "The sum of all elements of the array: " << sum << endl;
 	cout << "The mean of all elements of the array: " << mean << endl;
@@ -82,12 +87,7 @@ int main()
 	{
 		for (int j = 0; j < size; j++)
 		{
-			if (arr[i][j] < 10 && arr[i][j] >= 0)
-			{
-				cout << " ";
-			}
-
-			cout << arr[i][j];
+			cout << setfill(' ') << setw(2) << arr[i][j];
 
 			cout << "  ";
 		}
