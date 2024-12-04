@@ -87,7 +87,7 @@ int main()
 	{
 		for (int j = 0; j < size; j++)
 		{
-			cout << setfill(' ') << setw(2) << arr[i][j];
+			cout << setw(2) << arr[i][j];
 
 			cout << "  ";
 		}
