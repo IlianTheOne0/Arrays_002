@@ -35,6 +35,10 @@ int main()
 		}
 	}
 
+
+
+
+
 	for (int i = 0; i < size_y; i++)
 	{
 		for (int j = 0; j < size_x; j++)
@@ -71,8 +75,12 @@ int main()
 
 	cout << " |   " << sum_of_all << endl;
 	
-	
+
 	cout << endl;
+
+
+
+
 
 	_getch();
 	return 0;
