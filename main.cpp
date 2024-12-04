@@ -9,7 +9,6 @@ using std::cin;
 using std::random_device;
 using std::mt19937;
 using std::uniform_int_distribution;
-using std::setfill;
 using std::setw;
 
 int _min(int arr[][5], int size)
