@@ -9,9 +9,7 @@ using std::cin;
 using std::random_device;
 using std::mt19937;
 using std::uniform_int_distribution;
-using std::setfill;
 using std::setw;
-
 
 int main()
 {
@@ -48,7 +46,7 @@ int main()
 	{
 		for (int j = 0; j < first_size_x; j++)
 		{
-			cout << setfill(' ') << setw(2) << first[i][j] << "  ";
+			cout << setw(2) << first[i][j] << "  ";
 		}
 
 		cout << endl;
@@ -61,7 +59,7 @@ int main()
 	{
 		for (int j = 0; j < second_size_x; j++)
 		{
-			cout << setfill(' ') << setw(2) << second[i][j] << "  ";
+			cout << setw(2) << second[i][j] << "  ";
 		}
 
 		cout << endl;
