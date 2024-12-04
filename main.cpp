@@ -66,7 +66,7 @@ int main()
 	{
 		for (int j = 0; j < size; j++)
 		{
-			arr[i][j] = dist(rd);
+			arr[i][j] = dist(gen);
 			sum += arr[i][j];
 		}
 	}
