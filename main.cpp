@@ -19,7 +19,7 @@ int main()
 	int arr[size_y][size_x];
 
 	unsigned long long sum_of_row = 0;
-	unsigned long long sum_of_col = 0;
+	unsigned long long sum_of_col[size_x]{};
 	unsigned long long sum_of_all = 0;
 
 	random_device rd;
@@ -30,14 +30,11 @@ int main()
 	{
 		for (int j = 0; j < size_x; j++)
 		{
-			arr[i][j] = dist(rd);
+			arr[i][j] = dist(gen);
 			sum_of_all += arr[i][j];
+			sum_of_col[j] += arr[i][j];
 		}
 	}
-
-
-
-
 
 	for (int i = 0; i < size_y; i++)
 	{
@@ -52,35 +49,20 @@ int main()
 		sum_of_row = 0;
 	}
 
-
 	for (int i = 0; i < 25; i++)
 	{
 		cout << "-";
 	}
 	cout << endl;
 
-
 	for (int j = 0; j < size_x; j++)
 	{
-		for (int i = 0; i < size_y; i++)
-		{
-
-			sum_of_col += arr[i][j];
-		}
-
-		cout << setfill(' ') << setw(2) << sum_of_col << "  ";
-		sum_of_col = 0;
+		cout << setfill(' ') << setw(2) << sum_of_col[j] << "  ";
 	}
 
-
 	cout << " |   " << sum_of_all << endl;
-	
 
 	cout << endl;
-
-
-
-
 
 	_getch();
 	return 0;
