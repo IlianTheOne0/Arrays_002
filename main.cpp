@@ -1,6 +1,7 @@
 #include <iostream>
 #include <conio.h>
 #include <random>
+#include <iomanip>
 
 using std::cout;
 using std::endl;
@@ -8,6 +9,8 @@ using std::cin;
 using std::random_device;
 using std::mt19937;
 using std::uniform_int_distribution;
+using std::setfill;
+using std::setw;
 
 int main()
 {
@@ -32,20 +35,12 @@ int main()
 		}
 	}
 
-
-
-
-
 	for (int i = 0; i < size_y; i++)
 	{
 		for (int j = 0; j < size_x; j++)
 		{
-			if (arr[i][j] < 10 && arr[i][j] >= 0)
-			{
-				cout << " ";
-			}
+			cout << setfill(' ') << setw(2) << arr[i][j] << "  ";
 
-			cout << arr[i][j] << "  ";
 			sum_of_row += arr[i][j];
 		}
 
@@ -69,12 +64,7 @@ int main()
 			sum_of_col += arr[i][j];
 		}
 
-		if (sum_of_col < 10 && sum_of_col >= 0)
-		{
-			cout << " ";
-		}
-
-		cout << sum_of_col << "  ";
+		cout << setfill(' ') << setw(2) << sum_of_col << "  ";
 		sum_of_col = 0;
 	}
 
@@ -83,10 +73,6 @@ int main()
 	
 	
 	cout << endl;
-
-
-
-
 
 	_getch();
 	return 0;
