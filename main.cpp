@@ -11,66 +11,82 @@ using std::uniform_int_distribution;
 
 int main()
 {
-	const int size_i = 3;
-	const int size_j = 4;
-	int arr[size_i][size_j];
+	const int size_x = 4;
+	const int size_y = 3;
+	int arr[size_y][size_x];
 
-	int sum_of_row_col = 0;
-	int sum_of_row = 0;
-	int sum_of_col = 0;
+	unsigned long long sum_of_row = 0;
+	unsigned long long sum_of_col = 0;
+	unsigned long long sum_of_all = 0;
 
 	random_device rd;
 	mt19937 gen(rd());
-	uniform_int_distribution<> dist(0, 99);
+	uniform_int_distribution<> dist(0, 15);
 
-	for (int i = 0; i < size_i; i++)
+	for (int i = 0; i < size_y; i++)
 	{
-		for (int j = 0; j < size_j; j++)
+		for (int j = 0; j < size_x; j++)
 		{
 			arr[i][j] = dist(rd);
-			sum_of_row_col += arr[i][j];
+			sum_of_all += arr[i][j];
 		}
 	}
 
-	for (int i = 0; i < size_i; i++)
+
+
+
+
+	for (int i = 0; i < size_y; i++)
 	{
-		for (int j = 0; j < size_j; j++)
+		for (int j = 0; j < size_x; j++)
 		{
 			if (arr[i][j] < 10 && arr[i][j] >= 0)
 			{
 				cout << " ";
 			}
 
-			cout << arr[i][j];
+			cout << arr[i][j] << "  ";
 			sum_of_row += arr[i][j];
-
-			cout << "   ";
 		}
 
-		cout << "|   " << sum_of_row << endl;
-
+		cout << " |   " << sum_of_row << endl;
 		sum_of_row = 0;
 	}
 
-	for (int i = 0; i <= 27; i++)
-	{
-		cout << '-';
-	}
 
+	for (int i = 0; i < 25; i++)
+	{
+		cout << "-";
+	}
 	cout << endl;
 
-	for (int j = 0; j < size_j; j++)
+
+	for (int j = 0; j < size_x; j++)
 	{
-		for (int i = 0; i < size_i; i++)
+		for (int i = 0; i < size_y; i++)
 		{
+
 			sum_of_col += arr[i][j];
+		}
+
+		if (sum_of_col < 10 && sum_of_col >= 0)
+		{
+			cout << " ";
 		}
 
 		cout << sum_of_col << "  ";
 		sum_of_col = 0;
 	}
 
-	cout << " |   " << sum_of_row_col << endl;
+
+	cout << " |   " << sum_of_all << endl;
+	
+	
+	cout << endl;
+
+
+
+
 
 	_getch();
 	return 0;
