@@ -40,7 +40,7 @@ int main()
 	{
 		for (int j = 0; j < size_x; j++)
 		{
-			cout << setfill(' ') << setw(2) << arr[i][j] << "  ";
+			cout << setw(2) << arr[i][j] << "  ";
 
 			sum_of_row += arr[i][j];
 		}
@@ -57,7 +57,7 @@ int main()
 
 	for (int j = 0; j < size_x; j++)
 	{
-		cout << setfill(' ') << setw(2) << sum_of_col[j] << "  ";
+		cout << setw(2) << sum_of_col[j] << "  ";
 	}
 
 	cout << " |   " << sum_of_all << endl;
