@@ -73,7 +73,7 @@ void display_menu(int selected) {
 }
 
 
-int _output(int arr[][6], int size_x, int size_y)
+void _output(int arr[][6], int size_x, int size_y)
 {
     for (int i = 0; i < size_y; i++)
     {
@@ -88,52 +88,73 @@ int _output(int arr[][6], int size_x, int size_y)
     }
 
     cout << endl;
-
-    return 0;
 }
 
-int _up(int arr[][6], int size_x, int size_y, int number_of_shifts)
-{
-    for (int shifts = 0; shifts < number_of_shifts; shifts++) {
-        for (int j = 0; j < size_x; j++) {
-            int temp = arr[0][j];
 
-            for (int i = 0; i < size_y - 1; i++) {
-                arr[i][j] = arr[i + 1][j];
+void _action(int arr[][6], int size_x, int size_y, int number_of_shifts, int selected)
+{
+    switch (selected)
+    {
+        case 1: // up
+        {
+            for (int shifts = 0; shifts < number_of_shifts; shifts++) {
+                for (int j = 0; j < size_x; j++) {
+                    int temp = arr[0][j];
+
+                    for (int i = 0; i < size_y - 1; i++) {
+                        arr[i][j] = arr[i + 1][j];
+                    }
+
+                    arr[size_y - 1][j] = temp;
+                }
             }
-            
-            arr[size_y - 1][j] = temp;
-        }
-    }
+        } break;
 
-    return 0;
-}
+        case 2: // right
+        {
+            for (int shifts = 0; shifts < number_of_shifts; shifts++) {
+                for (int i = 0; i < size_y; i++) {
+                    int temp = arr[i][size_x - 1];
 
-int _down(int arr[][6], int size_x, int size_y, int number_of_shifts)
-{
-    for (int shifts = 0; shifts < number_of_shifts; shifts++) {
-        for (int j = 0; j < size_x; j++) {
-            int temp = arr[size_y - 1][j];
+                    for (int j = size_x - 1; j > 0; j--) {
+                        arr[i][j] = arr[i][j - 1];
+                    }
 
-            for (int i = size_y - 1; i > 0; i--) {
-                arr[i][j] = arr[i - 1][j];
+                    arr[i][0] = temp;
+                }
             }
+        } break;
 
-            arr[0][j] = temp;
-        }
+        case 3: // down
+        {
+            for (int shifts = 0; shifts < number_of_shifts; shifts++) {
+                for (int j = 0; j < size_x; j++) {
+                    int temp = arr[size_y - 1][j];
+
+                    for (int i = size_y - 1; i > 0; i--) {
+                        arr[i][j] = arr[i - 1][j];
+                    }
+
+                    arr[0][j] = temp;
+                }
+            }
+        } break;
+
+        case 4: // left
+        {
+            for (int shifts = 0; shifts < number_of_shifts; shifts++) {
+                for (int i = 0; i < size_y; i++) {
+                    int temp = arr[i][0];
+
+                    for (int j = 0; j < size_x - 1; j++) {
+                        arr[i][j] = arr[i][j + 1];
+                    }
+
+                    arr[i][size_x - 1] = temp;
+                }
+            }
+        } break;
     }
-
-    return 0;
-}
-
-int _left(int arr[][6], int size_x, int size_y, int number_of_shifts)
-{
-    return 0;
-}
-
-int _right(int arr[][6], int size_x, int size_y, int number_of_shifts)
-{
-    return 0;
 }
 
 
@@ -191,11 +212,8 @@ int main()
             }
 
             switch (selected) {
-                case 1: _up(arr, size_x, size_y, number_of_shifts); break;
-                case 2: _right(arr, size_x, size_y, number_of_shifts); break;
-                case 3: _down(arr, size_x, size_y, number_of_shifts);  break;
-                case 4: _left(arr, size_x, size_y, number_of_shifts); break;
                 case 5: return 0; break;
+                case 1: case 2: case 3: case 4: _action(arr, size_x, size_y, number_of_shifts, selected); break;
             }
 
             if (selected != 5)
