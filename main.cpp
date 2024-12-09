@@ -23,7 +23,8 @@ int main()
 
 	for (int i = 0; i < size_y; i++)
 	{
-		for (int j = 0; j < size_x; j++)
+		arr[i][0] = number;
+		for (int j = 1; j < size_x; j++)
 		{
 			arr[i][j] = number * 2;
 			number = number * 2;
